@@ -28,7 +28,11 @@ io.on("connection", socket =>{
     io.emit("syncelement", elementid, posx, posy, text)
   })
   socket.on("newsearch", val=>{
-    io.emit("newsearch")
+    io.emit("newsearchreq")
+  })
+
+  socket.on("deleteprevious", (data)=>{
+    ElementPositions.delete(data)
   })
 
   socket.on("syncresults", (elementid, elementtext, type, posx, posy) =>{
