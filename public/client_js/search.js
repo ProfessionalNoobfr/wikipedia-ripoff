@@ -8,6 +8,7 @@ document.getElementById("searchbtn").addEventListener("click", function(event){
     searched = true
     if (query){
         pullresults(query.value)
+        socket.emit("newsearch")
     }
 })
 
@@ -60,14 +61,11 @@ async function pullresults(query) {
 
     const res = await fetch(url)
     const data = await res.json()
-    console.log(data)
     displayreults(data.query.search)
 }
 
 async function display(table) {
-    console.log("hi")
     const results = document.getElementById("results")
-    results.innerHTML = ""
     var newelement = document.createElement("div")
     newelement.innerHTML = table
     newelement.className = "result generaleffect"
@@ -77,9 +75,7 @@ async function display(table) {
 
 async function displayreults(table) {
     const results = document.getElementById("results")
-    results.innerHTML = ""
     for (let result of table){
-        console.log(result)
         var newelement = document.createElement("div")
         newelement.innerHTML = `<h1>${result.title}</h1><p>${result.snippet}</p>`
         newelement.className = "result generaleffect"
