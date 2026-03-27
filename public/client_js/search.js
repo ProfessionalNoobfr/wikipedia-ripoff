@@ -1,6 +1,6 @@
 var searched = false
 import { io } from "https://cdn.socket.io/4.8.3/socket.io.esm.min.js";
-const socket = io("http://localhost:3001")
+const socket = io("https://wikipedia-ripoff.onrender.com")
 
 document.getElementById("searchbtn").addEventListener("click", function(event){
     const query = document.getElementById("searchbox")
