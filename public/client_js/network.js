@@ -1,5 +1,5 @@
 import { io } from "https://cdn.socket.io/4.8.3/socket.io.esm.min.js";
-const socket = io("http://localhost:3001")
+const socket = io("https://wikipedia-ripoff.onrender.com")
 var elementselected = ""
 
 document.addEventListener("mousemove",function(event){
