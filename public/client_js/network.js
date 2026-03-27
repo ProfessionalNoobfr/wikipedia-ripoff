@@ -46,8 +46,13 @@ socket.on("onloadelements", (data) =>{
     }
 })
 
-socket.on("newsearch", (element) =>{
-    document.getElementById("results").innerHTML = ""
+socket.on("newsearchreq", (a) =>{
+    var elementlist = document.getElementById("results").children
+    for (let element of elementlist){
+        socket.on("deleteprevious", element.id)
+    }
+    var elementlist = document.getElementById("results")
+    elementlist.innerHTML = ""
 })
 
 socket.on("syncelement", (elementid, posx, posy, text) =>{
