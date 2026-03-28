@@ -12,6 +12,13 @@ document.getElementById("searchbtn").addEventListener("click", function(event){
     }
 })
 
+document.getElementById("searchbox").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+    event.preventDefault();
+    button.click();
+}
+})
+
 document.getElementById("clearresults").addEventListener("click", function(event){
     const results = document.getElementById("results")   
     results.innerHTML = ""
