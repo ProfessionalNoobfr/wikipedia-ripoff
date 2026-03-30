@@ -49,6 +49,7 @@ socket.on("onloadelements", (data) =>{
 socket.on("newsearchreq", (a) =>{
     var elementlist = document.getElementById("results").children
     for (let element of elementlist){
+        console.log(element, element.id)
         socket.on("deleteprevious", element.id)
     }
     var elementlist = document.getElementById("results")
